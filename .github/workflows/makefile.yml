@@ -129,7 +129,9 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone https://github.com/Kyuofox/AIK-Linux.git
-        mv android-kernel/${{ env.KERNEL_JX }}/*.img AIK-Linux/boot.img
+        git clone https://github.com/1964104127/tmp.git
+        mv tmp/*.img AIK-Linux/boot.img
+        # mv android-kernel/${{ env.KERNEL_JX }}/*.img AIK-Linux/boot.img
         AIK-Linux/unpackimg.sh
         cp android-kernel/out/arch/arm64/boot/Image.gz-dtb AIK-Linux/split_img/boot.img-zImage
         AIK-Linux/repackimg.sh
